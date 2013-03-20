@@ -14,7 +14,7 @@ data Crawler q i r = (Monoid (q i), Monoid r) => Crawler { scrap :: (i -> (q i, 
 
 getResults :: (Queue q i, Monoid (q i), Monoid r) => Crawler q i r -> q i -> r
 getResults c q =
-  case first q of
+  case qhead q of
     Nothing -> mempty
     Just i -> let (q', r) = scrap c i
-              in r `mappend` getResults c (rest q `mappend` q')
+              in r `mappend` getResults c (qtail q `mappend` q')

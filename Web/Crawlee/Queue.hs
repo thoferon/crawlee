@@ -9,8 +9,8 @@ import Web.Crawlee.TypeDefs
 import Data.Monoid
 
 class Queue q i where
-  first :: q i -> Maybe i
-  rest  :: q i -> q i
+  qhead :: q i -> Maybe i
+  qtail  :: q i -> q i
 
 instance Monoid a => Monoid (UniqQueue a) where
   mempty = UniqQueue mempty
@@ -18,6 +18,6 @@ instance Monoid a => Monoid (UniqQueue a) where
   UniqQueue a `mappend` UniqQueue b = UniqQueue $ a `mappend` b
 
 instance Queue UniqQueue a where
-  first (UniqQueue []) = Nothing
-  first (UniqQueue (i:_)) = Just i
-  rest (UniqQueue is) = UniqQueue $ tail is
+  qhead (UniqQueue []) = Nothing
+  qhead (UniqQueue (i:_)) = Just i
+  qtail (UniqQueue is) = UniqQueue $ tail is
