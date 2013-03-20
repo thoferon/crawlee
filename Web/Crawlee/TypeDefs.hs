@@ -8,4 +8,4 @@ module Web.Crawlee.TypeDefs (
 data UniqQueue a = UniqQueue [a]
 type Url = String
 type UrlQueue = UniqQueue Url
-data Page = Page { url :: Url, content :: String }
+data Page = Page { url :: Url, content :: String } deriving (Eq,Show)
