@@ -1,5 +1,13 @@
 module Web.Crawlee (
-  Crawler(..)
+  Url
+  , UrlQueue
+  , Page
+  , UniqQueue(..)
+  , Crawler(..)
+  , Queue
+  , getResults
   ) where
 
+import Web.Crawlee.TypeDefs
+import Web.Crawlee.Queue
 import Web.Crawlee.Crawler

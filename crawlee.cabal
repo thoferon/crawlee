@@ -48,7 +48,9 @@ cabal-version:       >=1.8
 library
   -- Modules exported by the library.
   exposed-modules:     Web.Crawlee,
-                       Web.Crawlee.Crawler
+                       Web.Crawlee.Crawler,
+                       Web.Crawlee.TypeDefs,
+                       Web.Crawlee.Queue
 
   -- Modules included in this library but not exported.
   -- other-modules:
